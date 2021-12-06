@@ -121,3 +121,30 @@ function findAndReturnPrimeNumbersTill1000(){
 
 
 console.log(findAndReturnPrimeNumbersTill1000())
+
+
+function findMinNumNotInArr(arr) {
+
+    let isEveryElementNegativeOrZero = arr.every((i) => i <= 0)
+
+    if(isEveryElementNegativeOrZero == true){
+        return 1
+    }
+
+    arr.sort((a, b) => a - b)
+
+    for (let i = 0; i < arr.length; i++) {
+
+        if(arr[i] >= 0){
+            if(arr[i] == arr[i+1] || arr[i] + 1 == arr[i+1]){
+                continue
+            }
+            return arr[i] + 1
+        }
+        
+    }
+    
+    return arr[arr.length] + 1
+}
+
+console.log(findMinNumNotInArr([1, 2, 3]))
