@@ -148,3 +148,41 @@ function findMinNumNotInArr(arr) {
 }
 
 console.log(findMinNumNotInArr([1, 2, 3]))
+
+
+
+function findTwoTimesRepeatedChars(str){
+
+    let twoTimesOccuredChars = []
+    
+    for (let i = 0; i < str.length; i++) {
+
+        const regex = new RegExp(str.charAt(i), 'g');
+        if (str.match(regex).length == 2 && !twoTimesOccuredChars.includes(str.charAt(i))) {
+            twoTimesOccuredChars.push(str.charAt(i))
+        }
+    }
+
+    return twoTimesOccuredChars
+
+}
+
+console.log(findTwoTimesRepeatedChars("lazarbeambetobt, 5 ydfgsdfsfasljg"))
+
+
+function findTwoTimesRepeatedChars2(str){
+
+    let arr = str.split('')
+    let twoTimesRepeatedChars = []
+    for (let i = 0; i < arr.length; i++) {
+        let count = 0
+        arr.forEach(x => x == arr[i] ? count++ : null)
+        if(count == 2 && !twoTimesRepeatedChars.includes(arr[i])){
+            twoTimesRepeatedChars.push(arr[i])
+        }
+    }
+
+    return twoTimesRepeatedChars
+}
+
+console.log(findTwoTimesRepeatedChars2("lazarbeambetobt, 5 ydfgsdfsfasljg"))
